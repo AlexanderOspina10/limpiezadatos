@@ -68,25 +68,20 @@
 
 text = "nif;nombre;email;teléfono;descuento\n01234567L;Lu*is González;luisgonzalez@mail.com;656343576;12.5\n71476342J;Macar*ena Ramírez;mac*arena@mail.com;692839321;8\n63823376M;Jua*n José Martínez;juan*jo@mail.com;664888233;5.2\n98376547F;Car*men Sánchez;carmen@m*ail.com;667677855;15.7"
 
-# 1. Limpiar el texto eliminando los asteriscos
 text_limpio = text.replace('*', '')
 
-# 2. Dividir el texto en líneas
 lineas = text_limpio.split('\n')
 
-# 3. Obtener los encabezados (primera línea)
 encabezados = lineas[0].split(';')
 
-# 4. Crear el diccionario con la información organizada
 datos = {}
 
-for linea in lineas[1:]:  # Saltar la primera línea (encabezados)
+for linea in lineas[1:]: 
     valores = linea.split(';')
     
-    # El NIF es la clave del diccionario
+
     nif = valores[0]
     
-    # Crear un diccionario interno con los demás datos
     datos[nif] = {
         'nombre': valores[1],
         'email': valores[2],
@@ -94,7 +89,7 @@ for linea in lineas[1:]:  # Saltar la primera línea (encabezados)
         'descuento': float(valores[4])
     }
 
-# Mostrar el resultado
+
 print(datos)
 
 **API:**
@@ -117,14 +112,12 @@ def get_move_effect(move_url):
     effect = None
     short_effect = None
 
-    # Buscar efectos en inglés
     for entry in move_data.get("effect_entries", []):
         if entry["language"]["name"] == "en":
             effect = entry["effect"]
             short_effect = entry["short_effect"]
             break
 
-    # Si no tiene efecto, usar damage_class
     if not effect:
         damage_class = move_data.get("damage_class")
         effect = damage_class["name"] if damage_class else None
