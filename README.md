@@ -1,4 +1,4 @@
-Limpieza de datos:
+**Limpieza de datos:**
 
 =FILTER('Base de datos'!A1:Y17700,
   BYROW('Base de datos'!A1:Y17700,
@@ -12,19 +12,19 @@ Limpieza de datos:
   )
 )
 
-REMPLAZAR:
+**REMPLAZAR:**
 
 =ARRAYFORMULA(IF(K2:K="","",IFERROR(VLOOKUP(K2:K,'Dictionary States'!A:B,2,FALSE),K2:K)))
 
-FORMULAS:
+**FORMULAS:**
 
-TRAER DATOS
+**TRAER DATOS**
 
 =BUSCARV(A2,'Resultado limpieza de datos'!A:G,7,FALSO) 
 
 =BUSCARV(A2,'Resultado limpieza de datos'!A:I,9,FALSO) 
 
-FECHAS
+**FECHAS**
 
 =SI.ERROR(
   TEXTO(
@@ -36,7 +36,7 @@ FECHAS
   ""
 )
 
-COMISION
+**COMISION**
 
 =SI.ERROR(
   INDICE('Resultado limpieza de datos'!O:O,
@@ -45,7 +45,7 @@ COMISION
   ""
 )
 
-SALES
+**SALES**
 
 =SI.ERROR(
   SI(
@@ -62,9 +62,9 @@ SALES
   ""
 )
 
-PYTHON:
+**PYTHON:**
 
-LIMPIAR:
+**LIMPIAR:**
 
 text = "nif;nombre;email;teléfono;descuento\n01234567L;Lu*is González;luisgonzalez@mail.com;656343576;12.5\n71476342J;Macar*ena Ramírez;mac*arena@mail.com;692839321;8\n63823376M;Jua*n José Martínez;juan*jo@mail.com;664888233;5.2\n98376547F;Car*men Sánchez;carmen@m*ail.com;667677855;15.7"
 
@@ -97,7 +97,7 @@ for linea in lineas[1:]:  # Saltar la primera línea (encabezados)
 # Mostrar el resultado
 print(datos)
 
-API:
+**API:**
 
 import requests
 import pandas as pd
